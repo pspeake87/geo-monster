@@ -36,6 +36,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+  # gem 'activerecord-postgresql-citext'
+end
+
+group :development do
+  gem 'sqlite3'
 end
 
 
