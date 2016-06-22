@@ -46,7 +46,12 @@
           <a class="page-scroll" href="#contact">Contact</a>
         </li>
         <li>
-          <a class="page-scroll" href="#team">Login</a>
+          <% if current_user %>
+            <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+          <% else %>
+              <%= link_to "Login", new_user_session_path %>
+          <% end %>
+
         </li>
       </ul>
     </div>
