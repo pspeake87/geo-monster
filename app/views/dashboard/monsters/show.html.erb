@@ -1,0 +1,25 @@
+
+
+<span> Name: </span><%= @monster.name %>
+<br>
+<span> Level: </span><%= @monster.level %>
+<br>
+<span> Hp: </span><%= @monster.current_hp %> / <%= @monster.max_hp %>
+<br>
+<span> Experience: </span><%= @monster.experience %>
+<br>
+<span> Strength: </span><%= @monster.stats[1] %>
+<br>
+<span> Defense: </span><%= @monster.stats[4] %>
+<br>
+<span> Speed: </span><%= @monster.stats[7] %>
+<br>
+<span> Evasion: </span><%= @monster.stats[10] %>
+<br>
+<span> Elemental: </span><%= @monster.stats[13] %>
+<br>
+
+
+
+<%= link_to 'Edit', edit_dashboard_monster_path(@monster) %> |
+<%= link_to 'Back', dashboard_monsters_path %>

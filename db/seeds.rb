@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+Monster.create( name: "Worm", level: 76, max_hp: 23, current_hp: 23, stats: [3,6,4,3,2,8], experience: 1600)

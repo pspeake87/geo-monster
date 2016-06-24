@@ -11,7 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160621034934) do
+ActiveRecord::Schema.define(version: 20160624213159) do
+
+  create_table "items", force: :cascade do |t|
+    t.string   "name",        default: "", null: false
+    t.integer  "health",      default: 1,  null: false
+    t.text     "description", default: "", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "monsters", force: :cascade do |t|
+    t.string   "name",       default: "",                                    null: false
+    t.integer  "level",      default: 1,                                     null: false
+    t.integer  "max_hp",     default: 1,                                     null: false
+    t.integer  "current_hp", default: 1,                                     null: false
+    t.integer  "experience", default: 1,                                     null: false
+    t.string   "stats",      default: "---\n- 0\n- 0\n- 0\n- 0\n- 0\n- 0\n"
+    t.datetime "created_at",                                                 null: false
+    t.datetime "updated_at",                                                 null: false
+  end
+
+  create_table "moves", force: :cascade do |t|
+    t.string   "name",       default: "",  null: false
+    t.float    "power",      default: 1.0, null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

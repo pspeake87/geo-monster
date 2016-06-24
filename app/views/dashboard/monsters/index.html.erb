@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Monsters</h1>
+
+
+<div id="new-monster-title">
+  <h3>Click here to upload your own monster</h3>
+  <%= link_to 'New Monster', new_dashboard_monster_path, class: 'btn btn-primary' %>
+
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @monsters.each do |monster| %>
+
+
+      <tr>
+        <td>
+          <%= image_tag 'slug.gif', size: "200" %>
+        </td>
+        <td>
+        <span> Name: </span><%= monster.name %>
+        <br>
+        <span> Level: </span><%= monster.level %>
+        <br>
+        <span> Hp: </span><%= monster.current_hp %> / <%= monster.max_hp %>
+        <br>
+        <span> Experience: </span><%= monster.experience %>
+        <br>
+        <span> Strength: </span><%= monster.stats[1] %>
+        <br>
+        <span> Defense: </span><%= monster.stats[4] %>
+        <br>
+        <span> Speed: </span><%= monster.stats[7] %>
+        <br>
+        <span> Evasion: </span><%= monster.stats[10] %>
+        <br>
+        <span> Elemental: </span><%= monster.stats[13] %>
+        <br>
+       </td>
+
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
