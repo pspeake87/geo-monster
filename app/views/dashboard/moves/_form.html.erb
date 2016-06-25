@@ -1,17 +1,21 @@
-<%= form_for(@move) do |f| %>
-  <% if @move.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@move.errors.count, "error") %> prohibited this move from being saved:</h2>
+<%= form_for [:dashboard, @move] do |f| %>
 
-      <ul>
-      <% @move.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <div class="form-group">
+  <%= f.label :name, 'Name', class: 'col-sm-1' %>
+   <div class="col-sm-2">
+    <%= f.text_field :name, class: 'form-control col-sm-4 inline'%>
     </div>
-  <% end %>
+  </div>
 
-  <div class="actions">
+  <div class="form-group ">
+    <%= f.label :power, class: 'col-sm-1' %>
+    <div class="col-sm-2">
+      <%= f.text_field :power, class: 'form-control inline'%>
+    </div>
+  </div>
+
+  <div class="form-group">
     <%= f.submit %>
   </div>
+
 <% end %>

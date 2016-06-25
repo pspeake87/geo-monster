@@ -1,17 +1,31 @@
-<%= form_for(@item) do |f| %>
-  <% if @item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
 
-      <ul>
-      <% @item.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_for [:dashboard, @item] do |f| %>
+
+  <div class="form-group">
+  <%= f.label :name, 'Name', class: 'col-sm-1' %>
+   <div class="col-sm-2">
+    <%= f.text_field :name, class: 'form-control col-sm-4 inline'%>
     </div>
-  <% end %>
+  </div>
 
-  <div class="actions">
+  <div class="form-group ">
+    <%= f.label :health, class: 'col-sm-1' %>
+    <div class="col-sm-2">
+      <%= f.text_field :health, class: 'form-control inline'%>
+    </div>
+  </div>
+
+  <div class="form-group ">
+  <%= f.label :description,  class: 'col-sm-1' %>
+  <div class="col-sm-2">
+      <%= f.text_field :description, class: 'form-control inline'%>
+  </div>
+
+  </div>
+
+
+  <div class="form-group">
     <%= f.submit %>
   </div>
+
 <% end %>

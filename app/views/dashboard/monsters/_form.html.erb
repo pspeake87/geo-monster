@@ -1,17 +1,35 @@
-<%= form_for(@monster) do |f| %>
-  <% if @monster.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@monster.errors.count, "error") %> prohibited this monster from being saved:</h2>
+<%= form_for [:dashboard, @monster] do |f| %>
 
-      <ul>
-      <% @monster.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <div class="form-group">
+  <%= f.label :name, 'Name', class: 'col-sm-1' %>
+   <div class="col-sm-2">
+    <%= f.text_field :name, class: 'form-control col-sm-4 inline'%>
     </div>
-  <% end %>
+  </div>
 
-  <div class="actions">
+  <div class="form-group ">
+    <%= f.label :level, 'level', class: 'col-sm-1' %>
+    <div class="col-sm-2">
+      <%= f.text_field :level, class: 'form-control inline'%>
+    </div>
+  </div>
+
+  <div class="form-group ">
+  <%= f.label :experience, 'experience', class: 'col-sm-1' %>
+  <div class="col-sm-2">
+      <%= f.text_field :experience, class: 'form-control inline'%>
+  </div>
+
+  </div>
+  <div class="form-group ">
+    <%= f.label :max_hp, 'max hp', class: 'col-sm-1' %>
+    <div class="col-sm-2">
+      <%= f.text_field :max_hp, class: 'form-control inline'%>
+    </div>
+  </div>
+
+  <div class="form-group">
     <%= f.submit %>
   </div>
+
 <% end %>

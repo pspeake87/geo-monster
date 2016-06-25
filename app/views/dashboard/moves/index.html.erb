@@ -18,9 +18,21 @@
 
   <tbody>
     <% @moves.each do |move| %>
-      <tr>
+    <tr>
+      <td>
+        <%= image_tag 'slug.gif', size: "200" %>
+      </td>
+      <td>
+      <span> Name: </span><%= move.name %>
+      <br>
+      <span> power: </span><%= move.power %>
+      <br>
 
-      </tr>
+
+     </td>
+
+
+    </tr>
     <% end %>
   </tbody>
 </table>

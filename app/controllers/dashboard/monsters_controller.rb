@@ -1,6 +1,6 @@
-class Dashboard::MonstersController < ApplicationController
+class Dashboard::MonstersController < DashboardController
   before_action :set_monster, only: [:show, :edit, :update, :destroy]
-  layout 'dashboard'
+  
   # GET /monsters
   # GET /monsters.json
   def index
@@ -28,7 +28,7 @@ class Dashboard::MonstersController < ApplicationController
 
     respond_to do |format|
       if @monster.save
-        format.html { redirect_to @monster, notice: 'Monster was successfully created.' }
+        format.html { redirect_to dashboard_monsters_path, notice: 'Monster was successfully created.' }
         format.json { render :show, status: :created, location: @monster }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class Dashboard::MonstersController < ApplicationController
   def update
     respond_to do |format|
       if @monster.update(monster_params)
-        format.html { redirect_to @monster, notice: 'Monster was successfully updated.' }
+        format.html { redirect_to dashboard_monsters_path, notice: 'Monster was successfully updated.' }
         format.json { render :show, status: :ok, location: @monster }
       else
         format.html { render :edit }
@@ -69,6 +69,6 @@ class Dashboard::MonstersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def monster_params
-      params.fetch(:monster, {})
+      params.require(:monster).permit(:name, :experience, :max_hp, :level)
     end
 end

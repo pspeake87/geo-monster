@@ -4,7 +4,7 @@
 
 <div id="new-monster-title">
   <h3>Click here to upload your own item</h3>
-  <%= link_to 'New Item', new_dashboard_monster_path, class: 'btn btn-primary'  %>
+  <%= link_to 'New Item', new_dashboard_item_path, class: 'btn btn-primary'  %>
 </div>
 
 <table>
@@ -16,7 +16,22 @@
 
   <tbody>
     <% @items.each do |item| %>
+
+
       <tr>
+        <td>
+          <%= image_tag 'slug.gif', size: "200" %>
+        </td>
+        <td>
+        <span> Name: </span><%= item.name %>
+        <br>
+        <span> health: </span><%= item.health %>
+        <br>
+        <span> description: </span><%= item.description %>
+        <br>
+
+       </td>
+
 
       </tr>
     <% end %>

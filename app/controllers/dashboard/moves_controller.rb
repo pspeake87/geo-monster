@@ -1,6 +1,6 @@
-class Dashboard::MovesController < ApplicationController
+class Dashboard::MovesController < DashboardController
   before_action :set_move, only: [:show, :edit, :update, :destroy]
-  layout 'dashboard'
+  
   # GET /moves
   # GET /moves.json
   def index
@@ -28,7 +28,7 @@ class Dashboard::MovesController < ApplicationController
 
     respond_to do |format|
       if @move.save
-        format.html { redirect_to @move, notice: 'Move was successfully created.' }
+        format.html { redirect_to dashboard_moves_path, notice: 'Move was successfully created.' }
         format.json { render :show, status: :created, location: @move }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class Dashboard::MovesController < ApplicationController
   def update
     respond_to do |format|
       if @move.update(move_params)
-        format.html { redirect_to @move, notice: 'Move was successfully updated.' }
+        format.html { redirect_to dashboard_moves_path, notice: 'Move was successfully updated.' }
         format.json { render :show, status: :ok, location: @move }
       else
         format.html { render :edit }
@@ -69,6 +69,6 @@ class Dashboard::MovesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def move_params
-      params.fetch(:move, {})
+        params.require(:move).permit(:name, :power)
     end
 end

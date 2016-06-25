@@ -1,6 +1,6 @@
-class Dashboard::ItemsController < ApplicationController
+class Dashboard::ItemsController < DashboardController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  layout 'dashboard'
+  
   # GET /items
   # GET /items.json
   def index
@@ -28,7 +28,7 @@ class Dashboard::ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+        format.html { redirect_to dashboard_items_path, notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class Dashboard::ItemsController < ApplicationController
   def update
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+        format.html { redirect_to dashboard_items_path, notice: 'Item was successfully updated.' }
         format.json { render :show, status: :ok, location: @item }
       else
         format.html { render :edit }
@@ -69,6 +69,6 @@ class Dashboard::ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.fetch(:item, {})
+      params.require(:item).permit(:name, :description, :health)
     end
 end

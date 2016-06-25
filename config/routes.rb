@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
 
   namespace :dashboard do
+    get 'home'
+    get 'profile'
+    get 'vote'
     resources :moves
     resources :monsters
     resources :items
@@ -11,9 +14,10 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     authenticated :user do
-      root 'dashboard/monsters#index', as: :authenticated_root
+      root 'dashboard#home', as: :authenticated_root
     end
   end
+
 
   root 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.
