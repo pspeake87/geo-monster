@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  use_doorkeeper
   namespace :dashboard do
     get 'home'
     get 'profile'
